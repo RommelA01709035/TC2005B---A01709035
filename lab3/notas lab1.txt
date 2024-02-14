@@ -1,0 +1,10 @@
+HTML semantico
+etiqueta nav: es saber que trata la pagina
+aside: 
+*no decir compatibilidad con las paginas web*
+DOnde los usuarios finales utilizan vamos a decir la pagina
+
+
+
+
+
