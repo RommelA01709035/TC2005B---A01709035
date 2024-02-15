@@ -13,10 +13,27 @@ const hambre = confirm("Tienes hambre");
 
 if(hambre){
     alert("Buen provecho");
-    }else{
-        console.log("a chambear");
-    }
+}else{
+    console.log("a chambear");
+}
 
+//tradicional
+function construir(){
+    console.log("construyendo casa");
+}
+
+construir();
+
+//moderna
+const casa = () =>{
+    console.log("construyendo casa anonima");
+};
+
+const desayuno = (comida) =>{
+    console.log("el desayuno d ehoy" + comida);
+};
+
+desayuno("huevitos");
 //forma antigua
 var  juego = "Minecraft";
 
