@@ -69,6 +69,7 @@ for(let atributo in objeto){
     console.log(atributo);
 }
 
+document.write("hola");
 
 //forma antigua
 var  juego = "Minecraft";
