@@ -58,6 +58,18 @@ for(let element of arreglo){
     console.log(element);
 }
 
+//Objetos
+const objeto = {atributo: "valor", atr2 : "valor2" };
+objeto.atr3 = 5;
+console.log(objeto);
+
+
+//of valores impresos e in son atributos
+for(let atributo in objeto){
+    console.log(atributo);
+}
+
+
 //forma antigua
 var  juego = "Minecraft";
 
