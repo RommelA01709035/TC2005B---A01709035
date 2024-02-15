@@ -30,8 +30,15 @@ ul {
     background-color: #f0f0f0;
 }
 
-.fuentes{
+.fuentes-contenedor{
     background-color: darkgrey;
+}
+#titulo-principal{
+    background-color: aqua;
+}
+
+.fuentes ul li{ 
+    background-color: red;
 }
 
 h2 {
