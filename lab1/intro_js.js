@@ -34,6 +34,30 @@ const desayuno = (comida) =>{
 };
 
 desayuno("huevitos");
+
+//arreglos
+
+//constante en arreglo es la direccion de memoria solo puedes
+// modificar los elementos del arreglo ah menos que sean const
+const arreglo = ["Elemento"];
+const arreglo2 = new Array();
+arreglo.push("otra cosa");
+arreglo.push(34);
+arreglo[10]  = "nada";
+//arreglos asociativos
+arreglo["dos"] = 8;
+console.log(arreglo);
+
+//recorrido tradicional
+for(let i=0 ;i<arreglo.length;i++){
+    console.log(arreglo[i]);
+}
+
+//recorrido optimizado "of" imprime indices
+for(let element of arreglo){
+    console.log(element);
+}
+
 //forma antigua
 var  juego = "Minecraft";
 
