@@ -83,10 +83,18 @@
                     
                 </tfoot>
             </table>
-        <table>
-            <tr><th>Comida</th></tr><tr><th>Minerales</th></tr>
-            <tr><td>Manzana</td></tr><tr><td>Diamantes</td></tr>
-        </table>
+            <table>
+                <tbody>
+                    <tr><td>Manzanas</td><td>Diamantes</td></tr>
+                </tbody>
+                <thead>
+                    <tr><th>Comida</th><th>Minerales</th></tr>
+                </thead>
+                <tfoot>
+                    <tr><td colspan="2">Tabla de objetos de Minecraft</td></tr>
+                </tfoot>
+            </table>
+    
     </div>
     <div class="fuentes">
         <h2>Fuentes lab 1:</h2>
@@ -132,7 +140,29 @@
         <h1>Notas:</h1>
         <p> Usa otro link para usar en html</p>
     </div>
-    <script>src="intro_js.js"</script>
+    <div>
+        <ul class="collection">
+            <li class="pregunta">¿Qué diferencias y semejanzas hay entre Java y JavaScript?</li>
+            <li class="respuesta">Java es un lenguaje de programación OOP, mientras que Java Script es un lenguaje de scripts OOP. Java crea aplicaciones que se ejecutan en una máquina o explorador virtual, mientras que el código JavaScript sólo se ejecuta en un explorador. Similitades POO, Sintaxis, Compilacion, Concurrencia</li>
+            <li class="pregunta"><span style="text-decoration: underline;"></span>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*) </li>
+            <li class="respuesta">getDate(Devuelve el día del mes 1-31),getDay(Devuelve el dia de la semana),getFullYear(Devuelve el año),getHours(Devuelve la hora de 0 a 23), getMilliseconds(Devuelve los milisegundos (0 a 999))</li>
+            <li class="pregunta">¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</li>
+            <li class="respuesta">El método at() recibe un valor numérico entero y devuelve el elemento en esa posición,El método concat() se usa para unir dos o más arrays. Este método no cambia los arrays existentes, sino que devuelve un nuevo array.,El método find() devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada.El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos.</li>
+            <li class="pregunta">¿Cómo se declara una variable con alcance local dentro de una función? </li>
+            <li class="respuesta">Se inicializa la variable dentro de la función ya que si la inicias esta variable tendra diferente alcanza hasta tener la de global</li>
+            <li class="pregunta">¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</li>
+            <li class="respuesta">También pueden sobrescribir cosas en el objeto window, ya que las variables globales son propiedades del objeto window.</li>
+        </ul>
+    </div>
+    <div>
+        <h2>Fuentes lab 3</h2>
+        <ul>
+            <li><a href="https://www.java.com/es/download/help/java_javascript_es.html#:~:text=Java%20es%20un%20lenguaje%20de,se%20ejecuta%20en%20un%20explorador." target="_blank">Diferencias de Java vs Java script</a></li>
+            <li><a href="https://desarrolloweb.com/articulos/517.php" target="_blank">Variable local</a></li>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">Metodos de array</a></li>
+            <li><a href="https://hireline.io/blog/4-practicas-debes-evitar-javascript/#:~:text=Evita%20declarar%20variables%20globales&text=Tambi%C3%A9n%20pueden%20sobrescribir%20cosas%20en,locales%20tanto%20como%20sea%20posible.">Variables globales</a></li>
+        </ul>
+    </div>
+    <script src="intro_js.js"></script>
 </body>
-
 </html>

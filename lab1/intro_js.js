@@ -80,3 +80,4 @@ const precio =  5;
 //variable midernas
 let  cantidad=30;
 
+//
