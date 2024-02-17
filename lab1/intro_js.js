@@ -136,8 +136,84 @@ function contador(arreglo) {
     };
 }
 
-// Ejemplo de uso:
+
 var resultadoContador = contador([-2, 0, 5, -1, 3]);
 console.log("Negativos: " + resultadoContador.negativos);
 console.log("Ceros: " + resultadoContador.ceros);
 console.log("Mayores a 0: " + resultadoContador.mayoresCero);
+function promedios(matriz) {
+    var resultados = [];
+
+    for (var i = 0; i < matriz.length; i++) {
+        var fila = matriz[i];
+        var suma = 0;
+
+        for (var j = 0; j < fila.length; j++) {
+            suma += fila[j];
+        }
+
+        var promedio = suma / fila.length;
+        resultados.push(promedio);
+    }
+
+    return resultados;
+}
+
+
+var matrizEjemplo = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+var promediosResultantes = promedios(matrizEjemplo);
+console.log(promediosResultantes);
+
+function inverso(numero) {
+    var numeroString = numero.toString();
+    var numeroInverso = '';
+
+    for (var i = numeroString.length - 1; i >= 0; i--) {
+        numeroInverso += numeroString[i];
+    }
+
+    return parseInt(numeroInverso);
+}
+
+var resultadoInverso = inverso(12345);
+console.log("Número original: 12345");
+console.log("Número inverso: " + resultadoInverso);
+
+class Inventario{
+    constructor(piezas, Fecha, nombreDepartamento){
+        this.piezas = [];
+        this.Fecha= "";
+        this.nombreDepartamento = ""; 
+    }
+    
+    agrega(nombre, cantidad) {
+        this.piezas.push({ nombre: nombre, cantidad: cantidad });
+    }
+
+    disminuye(nombre, cantidad) {
+        for (let i = 0; i < this.piezas.length; i++) {
+            if (nombre == this.piezas[i].nombre) {
+                this.piezas[i].cantidad -= cantidad;
+            }
+        }
+    }
+
+    mostrar() {
+        console.log(`Mostrando el inventario`);
+        console.log('Pieza | Cantidad');
+        for (const pieza of this.piezas) {
+            console.log(`${pieza.nombre} | ${pieza.cantidad}`);
+        }
+    }
+}
+
+var Botana = new Inventario();
+Botana.agrega("Sabritas", 8);
+Botana.mostrar();
+Botana.disminuye("Sabritas", 4);
+Botana.mostrar();
