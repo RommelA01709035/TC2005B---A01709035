@@ -22,6 +22,14 @@ setTimeout(hackeo, 7000);
 
 //http es un modulo d enode con las funciones de un servidor web
 const http = require('http');
+//Request la información que le mandamos y response lo que quiero que responda el servidor
 
-
+const server = http.createServer((request, response) => {
+    console.log(request.url);
+    response.setHeader('Content-Type','text/html');
+    response.write("Hola mundo desde node")
+    response.end(); //envia respuestas al servidor
+});
+//Si carga la pagina esta esperando la respuesta
+server.listen(3000);
 console.log("Esto se imrpime primero antes que la linea");
