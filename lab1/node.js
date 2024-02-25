@@ -1,5 +1,5 @@
 console.log("Hola desde node");
-
+/*
 // fs es manipular el sistea de archivos
 const filesystem = require('fs'); // es más eficiente el preprocesamiento
 filesystem.writeFileSync('hola.txt','Hola desde node otra vez') //"" son para coficiar adentro
@@ -20,6 +20,7 @@ for(let item of arreglo){
 
 setTimeout(hackeo, 7000);
 
+*/
 //http es un modulo d enode con las funciones de un servidor web
 const http = require('http');
 //Request la información que le mandamos y response lo que quiero que responda el servidor
@@ -33,3 +34,16 @@ const server = http.createServer((request, response) => {
 //Si carga la pagina esta esperando la respuesta
 server.listen(3000);
 console.log("Esto se imrpime primero antes que la linea");
+
+function promedioArreglo(arr){
+    tamanio = arr.length - 1;
+    suma = 0;
+    for(let i = 0; i <=tamanio; i++){
+        suma+=arr[i];
+    }
+    promedio = suma/tamanio;
+    return promedio;
+
+}
+let arreglo = [1,2,3,4,5,6,7,8,9,10];
+console.log(promedioArreglo(arreglo));
