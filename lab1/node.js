@@ -4,6 +4,7 @@
 console.log("hola mundo desde node");
 
 //fs es el módulo para manipular el sistema de archivos
+
 const filesystem = require('fs');
 
 //Escribe el string del segundo parámetro 
