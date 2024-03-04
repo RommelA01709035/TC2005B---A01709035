@@ -1,0 +1,10 @@
+<%- include('includes/head.ejs') %>
+
+<h1 class="title">Escribe tu sugerencia</h1>
+<form action="/sugerencia" method="POST">
+    <label class="label" for="nombre">Sugerencia</label>
+    <input name="nombre" id="nombre" type="text" class="input"><br>
+    <input class="button is-success" type="submit" value="Sugerencia">
+</form>
+
+<%- include('includes/foot.ejs') %>
