@@ -1,30 +1,27 @@
-const construcciones = [
+const sugerencias = [
     {
-        nombre: "casa", 
-        imagen: "https://i.blogs.es/7cfcd0/casas-en-minecraft/1366_2000.jpeg",
+        nombre: "sugenrecia tipo", 
     }
 ];
 
 
-module.exports = class Construccion {
+module.exports = class Sugerencia {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(mi_nombre, mi_imagen) {
+    constructor(mi_nombre) {
         this.nombre = mi_nombre;
-        this.imagen = mi_imagen;
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        construcciones.push({
+        sugerencias.push({
             nombre: this.nombre,
-            imagen: this.imagen,
         }); //es lo mismo que construccions.push(this)
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return construcciones;
+        return sugerencias;
     }
 
 }
