@@ -16,7 +16,10 @@ module.exports = class Construccion {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        
+        construcciones.push({
+            nombre: this.nombre,
+            imagen: this.imagen,
+        }); //es lo mismo que construccions.push(this)
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
