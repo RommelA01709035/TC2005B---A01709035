@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const construccionesController =
+ require('../controllers/construcciones.controller');
 
+//una responsabilidad
 const construcciones = [
     {
         nombre: "casa", 
@@ -8,9 +11,7 @@ const construcciones = [
     }
 ];
 
-router.get('/sugerencia', (request, response, next) => {
-    response.render('sugerencia'); 
-});
+router.get('/sugerencia', );
 
 router.post('/sugerencia', (request, response, next) => {
     console.log(request.body);
@@ -22,9 +23,7 @@ router.get('/preguntalab12', (request, response, next) => {
 });
 
 
-router.get('/construir', (request, response, next) => {
-    response.render('construir'); 
-});
+router.get('/construir', construccionesController.get_construir );
 
 router.post('/construir', (request, response, next) => {
     console.log(request.body);
