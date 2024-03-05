@@ -1,7 +1,9 @@
 const Construccion = require('../models/construccion.model');
 
 exports.get_construir = (request, response, next) => {
-    response.render('construir'); 
+    response.render('construir', {
+        username: request.session.username || '',
+    });  
 };
 
 exports.post_construir = (request, response, next) => {
@@ -27,5 +29,6 @@ exports.get_root = (request, response, next) => {
     response.render('construcciones', {
         construcciones: Construccion.fetchAll(),
         ultima_construccion: ultima_construccion,
+        username: request.session.username || '',
     });
 }
