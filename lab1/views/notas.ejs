@@ -1,0 +1,24 @@
+<%- include('includes/head.ejs') %>
+<h1>Notas</h1>
+
+El internet solamente conecta archivos entre otras computadoras al inicio, 
+el protocolo de ocmunicación es de sin estado. Las redes eran a partir de los cables
+de comunicación, HTTP no tiene estado por su saturación en memoria al guardar
+todos los datos personales, en palabras tecnicas no es factible este protocolo de transmisión.
+
+Para apps para mantener el estado es usar cookies y sesiones.  Se maneja el estado del sistema a nivel de la aplicación 
+con los métodos anteriormente dichos
+
+<ul>
+    <li>
+        Las sesiones  se crean cuando el cliente realiza una petición y esto se guarda en una variable. Con una desventaja
+        de que se puede acabar la memoria del servidor, las memorias, la variable de sesion se moria cada cierto tiempo y configurarle
+        el tiempo.los ataques de negacion es acabarse el servidor. 
+    </li>
+    <li>
+        Cookies se gurdan en la pc del usuario (hanzel y gretel dejan un rastro d egalleta) y se guarda
+         en su navegador del cliente, se manda la peticion  GET,POST + cookies y después se envia al cliente 
+    </li>
+</ul>
+
+<%- include('includes/foot.ejs') %>
