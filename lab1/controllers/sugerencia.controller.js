@@ -8,13 +8,9 @@ exports.get_sugerir = (request, response, next) => {
 
 exports.post_sugerir = (request, response, next) => {
     console.log(request.body);
-    sugerencia.save()
-    response.redirect('/');
-    console.log(request.body);
     const sugerencia = 
     new Sugerencia(request.body.nombre);
     sugerencia.save();
-    
     response.setHeader('Set-Cookie', 'ultima_sugerencia=' + request.body.nombre +'; HttpOnly');
     response.redirect('/');
 };

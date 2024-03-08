@@ -27,7 +27,7 @@ app.use((request, response, next) => {
 });
 
 const rutasSugerencia = require('./routes/sugerencia.routes');
-app.use('/sugerencia', rutasSugerencia);
+app.use('/sugerencias', rutasSugerencia);
 
 const rutasUsuarios = require('./routes/usuarios.routes');
 app.use('/users', rutasUsuarios);
