@@ -21,13 +21,19 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
 //Middleware
+
+const rutasPreguntas = require('./routes/preguntaslab.routes');
+app.get('/preguntaslab', rutasPreguntas);
+
+const rutasSugerencia = require('./routes/sugerencia.routes');
+app.get('/sugerencia', rutasSugerencia);
+
+
 app.use((request, response, next) => {
   console.log('Middleware!');
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-const rutasSugerencia = require('./routes/sugerencia.routes');
-app.use('/sugerencia', rutasSugerencia);
 
 const rutasUsuarios = require('./routes/usuarios.routes');
 app.use('/users', rutasUsuarios);
