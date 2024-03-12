@@ -14,7 +14,10 @@ module.exports = class Usuario {
                 [this.username, password_cifrado]
                 );
             })
-            .catch((error) => console.log(error)); 
+            .catch((error) => {
+                console.log(error)
+                throw Error('Nombre de usuario incorrecto');
+            }); 
     
     }
     static fetchOne(username, password) {

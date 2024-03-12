@@ -2,9 +2,13 @@ const Usuario = require('../models/usuario.model')
 const bcrypt = require('bcryptjs');
 
 exports.get_login = (request, response, next) => {
+    const error = request.session.error || '';
+    request.session.error = '';
     response.render('login', {
         username: request.session.username || '',
         registrar: false,
+        error: error,
+        csrfToken: request.csrfToken(),
     });
 };
 
@@ -23,12 +27,15 @@ exports.post_login = (request, response, next) => {
                                 response.redirect('/construcciones');
                             });
                         } else {
+                            request.session.error = 'El usuario y/o contraseña son incorrectos.';
                             return response.redirect('/users/login');
                         }
                     }).catch(err => {
                         response.redirect('/users/login');
                     });
         } else {
+            
+            request.session.error = 'El usuario y/o contraseña son incorrectos.';
             response.redirect('/users/login');
         }
     })
@@ -42,16 +49,25 @@ exports.get_logout = (request, response, next) => {
 
 
 exports.get_signup = (request, response, next) => {
+    const error = request.session.error || '';
+    request.session.error = '';
     response.render('login', {
         username: request.session.username || '',
         registrar: true,
+        error: error,
+        csrfToken: request.csrfToken(),
     });
 };
+
 exports.post_signup = (request, response, next) => {
     const nuevo_usuario = new Usuario(request.body.username, request.body.password);
     nuevo_usuario.save()
         .then(([rows, fieldData])=>{
             response.redirect('/users/login');
         })
-        .catch((error)=>{console.log(error);});
+        .catch((error) => {
+            console.log(error);
+            request.session.error = 'Nombre de usuario inválido.';
+            response.redirect('/users/signup');
+        });
 };
