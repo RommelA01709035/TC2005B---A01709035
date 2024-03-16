@@ -25,4 +25,16 @@ module.exports = class Usuario {
             'SELECT * FROM usuario WHERE username=?', 
             [username]);
     }
+
+    static getPermisos(username){
+        return db.execute(
+        `
+        Select funcion
+        From usuario u, asigna a, rol r, posee p, permiso per
+        where u.username = ? AND u.username = a.username
+        and a.idrol = r.id and r.i = p.idrol and p.idpermiso = per.id
+        `,
+            
+        [username])
+    }
 }

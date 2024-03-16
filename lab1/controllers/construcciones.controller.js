@@ -4,6 +4,7 @@ exports.get_construir = (request, response, next) => {
     response.render('construir', {
         username: request.session.username || '',
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
     }); 
 };
 
@@ -37,6 +38,7 @@ exports.get_root = (request, response, next) => {
             construcciones: rows,
             ultima_construccion: ultima_construccion,
             username: request.session.username || '',
+            permisos: request.session.permisos || [],
         });
     })
     .catch((error) => {

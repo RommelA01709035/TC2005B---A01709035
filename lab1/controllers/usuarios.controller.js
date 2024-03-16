@@ -9,6 +9,7 @@ exports.get_login = (request, response, next) => {
         registrar: false,
         error: error,
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
     });
 };
 
@@ -21,6 +22,9 @@ exports.post_login = (request, response, next) => {
                 bcrypt.compare(request.body.password, user.password)
                     .then(doMatch => {
                         if (doMatch) {
+                            Usuario.getPermisos(user.username).then([permisos, fieldData])=>{}.catch() =>{};
+                            request.session.permisos = permisos;
+                            console.log(request.session.permisos)
                             request.session.isLoggedIn = true;
                             request.session.username = user.username;
                             return request.session.save(err => {
@@ -56,6 +60,7 @@ exports.get_signup = (request, response, next) => {
         registrar: true,
         error: error,
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
     });
 };
 
