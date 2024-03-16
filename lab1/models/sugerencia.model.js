@@ -1,6 +1,6 @@
 const sugerencias = [
     {
-        nombre: "sugenrecia tipo", 
+        nombre: "sugenrencia default", 
     }
 ];
 

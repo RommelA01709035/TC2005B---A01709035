@@ -18,3 +18,18 @@ exports.post_sugerir = (request, response, next) => {
     response.redirect('/');
 };
 
+exports.get_root = (request, response, next) => {
+    console.log('Ruta /');
+    let ultima_sugerencia = request.get('Cookie');
+    if (ultima_sugerencia) {
+        ultima_sugerencia = ultima_sugerencia.split('=')[1];
+    } else {
+        ultima_sugerencia = '';
+    }
+    console.log(ultima_sugerencia);
+    response.render('sugerencias', {
+        construcciones: Sugerencia.fetchAll(),
+        ultima_sugerencia: ultima_sugerencia,
+        username: request.session.username || '',
+    });
+}
