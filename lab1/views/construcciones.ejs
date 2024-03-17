@@ -1,16 +1,16 @@
 <%- include('includes/head.ejs', {username: username}) %>
-<%- include('includes/nav.ejs') %> 
 
 <h1 class="title">Hola mundo de Minecraft!</h1>
 
 <div class="columns">
-   
+
     <% if (construcciones.length < 1) { %>
         <div class="notification is-info">
             <button class="delete"></button>
             No existe la construcción.            
         </div>
     <% } %>
+
     <% for (let construccion of construcciones) { %>
 
         <div class="column">
@@ -45,11 +45,11 @@
         </div>
         
     <% } %>
-       
-</div>        
+
+</div>    
 
 <% if(ultima_construccion != '') { %>
-    <div>La última construcción fue <%= ultima_construccion %>.</div>
+    <div>La última construcción fue <%- ultima_construccion %>.</div>
 <% } %>
 
 <%- include('includes/foot.ejs') %>
