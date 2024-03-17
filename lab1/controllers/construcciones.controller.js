@@ -3,6 +3,7 @@ const Construccion = require('../models/construccion.model');
 exports.get_construir = (request, response, next) => {
     response.render('construir', {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     }); 
 };
 
@@ -14,7 +15,7 @@ exports.post_construir = (request, response, next) => {
         .then(([rows, fieldData]) => {
             response.setHeader('Set-Cookie', 
                 'ultima_construccion=' + request.body.nombre + '; HttpOnly');
-            response.redirect('/');
+            response.redirect('/construcciones');
         })
         .catch((error) => {console.log(error)});
 
@@ -30,7 +31,7 @@ exports.get_root = (request, response, next) => {
     }
     console.log(ultima_construccion);
 
-    Construccion.fetchAll().then(([rows, fieldData]) => {
+    Construccion.fetch(request.params.construccion_id).then(([rows, fieldData]) => {
         console.log(rows);
         response.render('construcciones', {
             construcciones: rows,

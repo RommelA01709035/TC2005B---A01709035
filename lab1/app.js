@@ -13,42 +13,34 @@ app.use(session({
 }));
 
 const path = require('path');
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+//Agregar protección contra ataques de CSRF
+const csrf = require('csurf');
+const csrfProtection = csrf();
+app.use(csrfProtection); 
 
-
+//Middleware
 app.use((request, response, next) => {
   console.log('Middleware!');
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-
-
 const rutasUsuarios = require('./routes/usuarios.routes');
 app.use('/users', rutasUsuarios);
 
-//Registrar el middleware con el módulo construcciones
-//Middleware
-
-const rutasPreguntas = require('./routes/preguntaslab.routes');
-app.get('/preguntaslab', rutasPreguntas);
-
-const rutasSugerencia = require('./routes/sugerencia.routes');
-app.get('/sugerencia', rutasSugerencia);
-
 const rutasConstrucciones = require('./routes/construcciones.routes');
-app.use('/', rutasConstrucciones);
+app.use('/construcciones', rutasConstrucciones);
 
 app.use((request, response, next) => {
   response.status(404);
   response.sendFile(
     path.join(__dirname, 'views', '404.html')
-    );
+  );
 });
 
 app.listen(3000);
