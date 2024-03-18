@@ -36,6 +36,9 @@ app.use('/users', rutasUsuarios);
 const rutasConstrucciones = require('./routes/construcciones.routes');
 app.use('/construcciones', rutasConstrucciones);
 
+const rutaPreguntas = require('./routes/preguntaslab.routes');
+app.get('/preguntaslab',rutaPreguntas);
+
 app.use((request, response, next) => {
   response.status(404);
   response.sendFile(
