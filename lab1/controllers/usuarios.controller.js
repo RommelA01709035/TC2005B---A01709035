@@ -22,14 +22,15 @@ exports.post_login = (request, response, next) => {
                 bcrypt.compare(request.body.password, user.password)
                     .then(doMatch => {
                         if (doMatch) {
-                            Usuario.getPermisos(user.username).then([permisos, fieldData])=>{}.catch() =>{};
-                            request.session.permisos = permisos;
-                            console.log(request.session.permisos)
-                            request.session.isLoggedIn = true;
-                            request.session.username = user.username;
-                            return request.session.save(err => {
-                                response.redirect('/construcciones');
-                            });
+                            Usuario.getPermisos(user.username).then(([permisos, fieldData]) => {
+                                request.session.isLoggedIn = true;
+                                request.session.permisos = permisos;
+                                console.log(request.session.permisos);
+                                request.session.username = user.username;
+                                return request.session.save(err => {
+                                    response.redirect('/construcciones');
+                                });
+                            }).catch((error) => {console.log(error);});
                         } else {
                             request.session.error = 'El usuario y/o contraseña son incorrectos.';
                             return response.redirect('/users/login');
