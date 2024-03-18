@@ -1,4 +1,4 @@
-const Usuario = require('../models/usuario.model')
+const Usuario = require('../models/usuario.model');
 const bcrypt = require('bcryptjs');
 
 exports.get_login = (request, response, next) => {
@@ -37,20 +37,19 @@ exports.post_login = (request, response, next) => {
                     }).catch(err => {
                         response.redirect('/users/login');
                     });
-        } else {
-            
-            request.session.error = 'El usuario y/o contraseña son incorrectos.';
-            response.redirect('/users/login');
-        }
-    })
-    .catch((error) => {console.log(error)});};
+            } else {
+                request.session.error = 'El usuario y/o contraseña son incorrectos.';
+                response.redirect('/users/login');
+            }
+        })
+        .catch((error) => {console.log(error)});
+};
 
 exports.get_logout = (request, response, next) => {
     request.session.destroy(() => {
         response.redirect('/users/login'); //Este código se ejecuta cuando la sesión se elimina.
     });
 };
-
 
 exports.get_signup = (request, response, next) => {
     const error = request.session.error || '';

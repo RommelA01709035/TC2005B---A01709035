@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 <%- include('includes/head.ejs',
  {username: username, permisos: permisos}) 
 %>
+=======
+<%- include('includes/head.ejs', {
+    username: username, 
+    permisos: permisos
+}) %>
+>>>>>>> ac65f851603fcfe9ec7f581fbd8a5feb1cd7db6c
 
 <h1 class="title">Agregar una construcción</h1>
 <form action="/construcciones/construir" method="POST">
@@ -8,6 +15,7 @@
     <label class="label" for="nombre">Nombre</label>
     <input name="nombre" id="nombre" type="text" class="input"><br>
     <label class="label" for="imagen">Imagen</label>
+    <input name="imagen" id="imagen" type="text" class="input"><br><br>
     <input class="button is-success" type="submit" value="Construir">
 </form>
 

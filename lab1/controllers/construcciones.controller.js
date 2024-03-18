@@ -16,7 +16,7 @@ exports.post_construir = (request, response, next) => {
         .then(([rows, fieldData]) => {
             response.setHeader('Set-Cookie', 
                 'ultima_construccion=' + request.body.nombre + '; HttpOnly');
-                response.redirect('/construcciones');
+            response.redirect('/construcciones');
         })
         .catch((error) => {console.log(error)});
 

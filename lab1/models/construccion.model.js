@@ -25,6 +25,7 @@ module.exports = class Construccion {
         return db.execute('SELECT * FROM construccion WHERE id=?', 
             [id]);
     }
+
     static fetch(id) {
         if (id) {
             return this.fetchOne(id);
@@ -32,4 +33,5 @@ module.exports = class Construccion {
             return this.fetchAll();
         }
     }
+
 }
