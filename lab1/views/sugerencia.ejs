@@ -1,10 +1,15 @@
-<%- include('includes/head.ejs') %>
+<%- include('includes/head.ejs', {
+    username: username, 
+    permisos: permisos
+}) %>
 
 <h1 class="title">Escribe tu sugerencia</h1>
-<form action="/sugerencia" method="POST">
-    <label class="label" for="nombre">Sugerencia</label>
-    <input name="nombre" id="nombre" type="text" class="input"><br>
+<<form action="/sugerencia" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+    <label class="label" for="imagen">Imagen</label>
+    <input name="imagen" id="imagen" type="file" class="input"><br><br>
     <input class="button is-success" type="submit" value="Sugerencia">
 </form>
+
 
 <%- include('includes/foot.ejs') %>

@@ -51,6 +51,10 @@ app.use('/users', rutasUsuarios);
 const rutasConstrucciones = require('./routes/construcciones.routes');
 app.use('/construcciones', rutasConstrucciones);
 
+const rutasSugerencias = require('./routes/sugerencia.routes');
+app.use('/sugerencia', rutasSugerencias);
+
+
 const rutaPreguntas = require('./routes/preguntaslab.routes');
 app.get('/preguntaslab',rutaPreguntas);
 
