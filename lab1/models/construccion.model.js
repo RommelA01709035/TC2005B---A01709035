@@ -34,10 +34,14 @@ module.exports = class Construccion {
         }
     }
 
-    static search (valor_busqueda){
-        return db.execute(`
-            SELECT * FROM construccion WHERE nombre LIKE ?
-        `, ['%' + valor_busqueda + '%'])
+    static search(valor_busqueda) {
+        return db.execute('SELECT * FROM construccion WHERE nombre LIKE ?', 
+            ['%' + valor_busqueda + '%']);
+    }
+
+    static delete(id) {
+        return db.execute('DELETE FROM construccion WHERE id=?', 
+            [id]);
     }
 
 }

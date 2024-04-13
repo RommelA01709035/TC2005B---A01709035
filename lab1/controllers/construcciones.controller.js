@@ -40,6 +40,7 @@ exports.get_root = (request, response, next) => {
             ultima_construccion: ultima_construccion,
             username: request.session.username || '',
             permisos: request.session.permisos || [],
+            csrfToken: request.csrfToken(),
         });
     })
     .catch((error) => {
@@ -52,6 +53,17 @@ exports.get_buscar = (request, response, next) => {
     Construccion.search(request.params.valor_busqueda || '')
         .then(([construcciones, fieldData]) => {
             return response.status(200).json({construcciones: construcciones});
+        })
+        .catch((error) => {console.log(error)});
+};
+
+exports.post_delete = (request, response, next) => {
+    Construccion.delete(request.body.id)
+        .then(() => {
+            return Construccion.fetch();
+        })
+        .then(([construcciones, fieldData]) => {
+            return response.status(200).json({construcciones: construcciones})
         })
         .catch((error) => {console.log(error)});
 };
