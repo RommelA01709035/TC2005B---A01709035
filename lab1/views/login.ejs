@@ -19,5 +19,18 @@
     <input name="password" id="password" type="password" class="input"><br><br>
     <input class="button is-success" type="submit" value="<% if(registrar) { %>Registrarse<% } else { %>Entrar<% } %>">
 </form>
+<script>
+    async function getProfile(accessToken) {
+      const response = await fetch('https://api.spotify.com/v1/me', {
+        headers: {
+          Authorization: 'Bearer ' + accessToken
+        }
+      });
+
+      const data = await response.json();
+      console.log(data);
+    }
+</script>
+
 
 <%- include('includes/foot.ejs') %>

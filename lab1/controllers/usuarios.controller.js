@@ -14,6 +14,8 @@ exports.get_login = (request, response, next) => {
 };
 
 exports.post_login = (request, response, next) => {
+    
+      
     Usuario.fetchOne(request.body.username)
         .then(([users, fieldData]) => {
             if(users.length == 1) {
